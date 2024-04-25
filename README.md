@@ -11,6 +11,7 @@ Before running the script, make sure you have the following dependencies install
 
 You can install these dependencies using pip:
 
-'''
+```
 pip install pytube
-'''
+pip install urllib
+```
