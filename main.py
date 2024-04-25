@@ -76,23 +76,27 @@ def downloadPlaylist(playlist_url):
 GtavUserMusicPath = os.path.expanduser("~/Documents/Rockstar Games/GTA V/User Music")
 if not os.path.exists(GtavUserMusicPath):
     os.makedirs(GtavUserMusicPath)
-
-q1 = input("Do you want to download a song or a playlist? ([1]song/[2]playlist): ")
-if q1 == "1":
-    q3 = input("Do you want to download the song from a URL or search for it? ([1]URL/[2]search): ")
-    if q3 == "1":
-        songURL = input("Enter the song URL: ")
-        downloadSong(songURL, GtavUserMusicPath)
-    elif q3 == "2":
-        song = input("Enter the song name: ")
-        downloadSong(searchSong(song), GtavUserMusicPath)
-elif q1 == "2":
-    q2 = input("Do you have the playlist URL from youtube or a list in a txt file? ([1]URL/[2]file): ")
-    if q2 == "1":
-        playlistURL = input("Enter the playlist URL: ")
-        downloadPlaylist(playlistURL)
-    elif q2 == "2":
-        playlistTXT = input("Enter the playlist file name (txt file): ")
-        if not playlistTXT.endswith(".txt"):
-            playlistTXT = playlistTXT + ".txt"
-        downloadTXTPlaylist(playlistTXT)
+print("\nWelcome to the GTA V User Music Downloader!")
+print("Note: The downloaded songs will be saved in the GTA V User Music folder.\n")
+while True:
+    q1 = input("Do you want to download a song or a playlist? ([1]song/[2]playlist): ")
+    if q1 == "1":
+        q3 = input("Do you want to download the song from a URL or search for it? ([1]URL/[2]search): ")
+        if q3 == "1":
+            songURL = input("Enter the song URL: ")
+            downloadSong(songURL, GtavUserMusicPath)
+        elif q3 == "2":
+            song = input("Enter the song name: ")
+            downloadSong(searchSong(song), GtavUserMusicPath)
+    elif q1 == "2":
+        q2 = input("Do you have the playlist URL from youtube or a list in a txt file? ([1]URL/[2]file): ")
+        if q2 == "1":
+            playlistURL = input("Enter the playlist URL: ")
+            downloadPlaylist(playlistURL)
+        elif q2 == "2":
+            playlistTXT = input("Enter the playlist file name (txt file): ")
+            if not playlistTXT.endswith(".txt"):
+                playlistTXT = playlistTXT + ".txt"
+            downloadTXTPlaylist(playlistTXT)
+    if input("\nDo you want to download something else? (y/n): ").lower() != "y":
+        break
