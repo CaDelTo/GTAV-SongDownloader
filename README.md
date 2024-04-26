@@ -15,3 +15,5 @@ You can install these dependencies using pip:
 pip install pytube
 pip install urllib
 ```
+
+You can also just download the .exe!
